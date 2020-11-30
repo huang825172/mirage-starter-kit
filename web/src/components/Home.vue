@@ -6,6 +6,7 @@
           variant="light"
           id="nav">
         <b-navbar-nav class="ml-auto">
+          <b-nav-item href="/NoPage">404</b-nav-item>
           <b-nav-item href="/about">关于</b-nav-item>
         </b-navbar-nav>
       </b-navbar>
