@@ -3,7 +3,7 @@ WORKDIR /app
 COPY ./ /app
 
 WORKDIR /app/web
-RUN npm install --only=prod
+RUN npm install
 RUN npm run build
 RUN mv dist/* ../server/public
 
