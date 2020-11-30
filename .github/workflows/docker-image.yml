@@ -1,4 +1,4 @@
-name: Build
+name: Docker-Image
 on: push
 
 jobs:
