@@ -1,0 +1,14 @@
+FROM node:12
+WORKDIR /app
+COPY ./ /app
+
+WORKDIR /app/web
+RUN npm install
+RUN npm run build
+RUN mv dist/* ../server/public
+
+WORKDIR /app/server
+RUN npm install
+EXPOSE 8080
+
+ENTRYPOINT npm run start
