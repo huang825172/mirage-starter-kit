@@ -1,15 +1,15 @@
 FROM node:12
 
 WORKDIR /app/web
-COPY ./web/package*.json .
+COPY ./web/package*.json ./
 RUN npm install
 
 WORKDIR /app/server
-COPY ./server/package*.json .
+COPY ./server/package*.json ./
 RUN npm install
 
 WORKDIR /app
-COPY ./ .
+COPY ./ ./
 
 WORKDIR /app/web
 RUN npm run build
