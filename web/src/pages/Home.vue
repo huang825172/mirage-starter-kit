@@ -4,17 +4,11 @@
     <b-img center :src="this.logoImg" alt="Logo image" id="logo"></b-img>
     <div class="container">
       <div class="row">
-        <div class="col-5"></div>
-        <div class="col-2">
+        <div class="col-1 col-sm-2 col-md-4"></div>
+        <div class="col-10 col-sm-8 col-md-4">
           <b-button @click="click()" variant="danger" style="width: 100%">
-            按下
+            已按下 {{ count }} 次
           </b-button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4" id="counter">
-          <h3>已按下 {{ count }} 次</h3>
         </div>
       </div>
     </div>

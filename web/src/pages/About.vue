@@ -13,7 +13,7 @@
         <div class="col-8">
           <h5 style="margin-top: 30px; text-align: center">
             <strong>Mirage Starter Kit</strong> 是基于
-            <em>Vue.js ，Bootstrap ，Express ，Sequelize</em>
+            <em style="color:#666">Vue.js ，Bootstrap ，Express ，Sequelize</em>
             构建网络应用的项目模板。
           </h5>
         </div>

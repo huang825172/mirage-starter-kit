@@ -3,8 +3,8 @@
     <Navbar></Navbar>
     <div class="container">
       <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
+        <div class="col-2 col-sm-4 col-md-4"></div>
+        <div class="col-8 col-sm-4 col-md-4">
           <h1 style="margin-top: 20vh; text-align: center">404</h1>
         </div>
       </div>
