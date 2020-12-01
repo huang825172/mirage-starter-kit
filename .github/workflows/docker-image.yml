@@ -15,8 +15,8 @@ jobs:
           mv dist/* ../server/public
       - uses: "finnp/create-file-action@master"
         env:
-          FILE_NAME: "./server/mysql_url"
-          FILE_DATA: ${{ secrets.MYSQL_URL }}
+          FILE_NAME: "./server/db_url"
+          FILE_DATA: ${{ secrets.DB_URL }}
       - uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
