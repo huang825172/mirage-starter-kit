@@ -6,6 +6,10 @@ const logger = require('morgan');
 const apiRouter = require('./routes/apis');
 const historyRouter = require('./routes/history');
 
+const sequelize = require('./db/db')
+require('./db/model');
+sequelize.sync({ force: true });
+
 const app = express();
 
 app.use(logger('dev'));

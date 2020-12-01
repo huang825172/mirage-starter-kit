@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const db = require('../db')
+const sequelize = require('../db/db');
 
 /* GET db auth status. */
-router.get('/', async function(req, res, next) {
+router.get('/', async function (req, res, next) {
   try {
-    await db.authenticate();
+    await sequelize.authenticate();
     res.send('Connection has been established successfully.');
   } catch (error) {
     res.send('Unable to connect to the database:' + error);
