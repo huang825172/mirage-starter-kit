@@ -4,6 +4,8 @@
 
 基于 `Vue.js` ，`Bootstrap` ，`Express` ，`Sequelize` 构建网络应用的项目模板。
 
+![Mirage](mirage.png)
+
 ## 运行
 
 ### 后端
