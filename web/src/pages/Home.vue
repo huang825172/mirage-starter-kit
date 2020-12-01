@@ -10,14 +10,12 @@
             按下
           </b-button>
         </div>
-        <div class="col-5"></div>
       </div>
       <div class="row">
         <div class="col-4"></div>
         <div class="col-4" id="counter">
           <h3>已按下 {{ count }} 次</h3>
         </div>
-        <div class="col-4"></div>
       </div>
     </div>
   </div>
