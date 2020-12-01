@@ -13,7 +13,11 @@ jobs:
           npm install
           npm run build
           mv dist/* ../server/public
-      - run: ${{ secrets.MYSQL_URL }} > ./server/mysql_url
+      - name: Setup environment
+        working-directory: ./server
+        run: |
+          touch mysql_url
+          ${{ secrets.MYSQL_URL }} > mysql_url
       - uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
