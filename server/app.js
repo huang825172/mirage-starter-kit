@@ -12,7 +12,7 @@ const historyRouter = require('./routes/history');
 // 引入并初始化数据库
 const sequelize = require('./db/db')
 require('./db/model');
-await sequelize.sync({ force: true });
+sequelize.sync({ force: true });
 
 const app = express();
 
