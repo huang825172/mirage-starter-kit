@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { kLogoDark, kApiService } from "../common";
+import common from "../common";
 import Navbar from "../components/Navbar";
 
 export default {
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       count: 0,
-      logoImg: kLogoDark,
+      logoImg: common.kLogoDark,
     };
   },
   components: {
@@ -33,7 +33,7 @@ export default {
   // 在页面载入时更新点击次数数据
   mounted() {
     this.axios
-      .post(kApiService.getCount, {})
+      .post(common.kApiService.getCount, {})
       .then((res) => {
         this.count = res.data.count;
       })
@@ -43,10 +43,10 @@ export default {
     // 点击时，先报告点击事件，再请求新的点击次数
     click() {
       this.axios
-        .post(kApiService.addCount, {})
+        .post(common.kApiService.addCount, {})
         .then(() => {
           this.axios
-            .post(kApiService.getCount, {})
+            .post(common.kApiService.getCount, {})
             .then((res) => {
               this.count = res.data.count;
             })
@@ -59,17 +59,10 @@ export default {
 </script>
 
 <style scoped>
-#nav {
-  border-bottom: solid lightgray 1px;
-}
 
 #logo {
   margin-top: 2vh;
   max-height: 300px;
 }
 
-#counter {
-  margin-top: 20px;
-  text-align: center;
-}
 </style>
