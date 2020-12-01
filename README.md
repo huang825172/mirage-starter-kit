@@ -1,10 +1,8 @@
 # Mirage Starter Kit
 
-![Docker Image](https://github.com/huang825172/mirage-test/workflows/Docker%20Image/badge.svg)
+![Docker Image](https://github.com/huang825172/mirage-starter-kit/workflows/Docker%20Image/badge.svg)
 
-`Mirage` 是 AI 驱动、基于词库的文本阅读平台。
-
-此仓库主要用于熟悉开发工具和工作流程，方便推进平台搭建。
+基于 `Vue.js` ，`Bootstrap` ，`Express` ，`Sequelize` 构建网络应用的项目模板。
 
 ## 运行
 
