@@ -42,13 +42,8 @@ export default {
     click() {
       this.axios
         .post(kApiService.root, {})
-        .then(() => {
-          this.axios
-            .post(kApiService.root, {})
-            .then((res) => {
-              this.count = res.data.count;
-            })
-            .catch((err) => console.log(err));
+        .then((res) => {
+          this.count = res.data;
         })
         .catch((err) => console.log(err));
     },
