@@ -1,41 +1,58 @@
 <template>
   <div>
     <Navbar></Navbar>
-    <b-img center :src="logoImg" alt="Logo image" id="logo"></b-img>
+    <b-img center :src="this.logoImg" alt="Logo image" id="logo"></b-img>
+    <div class="container">
+      <div class="row">
+        <div class="col-5"></div>
+        <div class="col-2">
+          <b-button @click="click()" variant="danger" style="width: 100%">
+            按下
+          </b-button>
+        </div>
+        <div class="col-5"></div>
+      </div>
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4" id="counter">
+          <h3>已按下 {{ count }} 次</h3>
+        </div>
+        <div class="col-4"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import common from "../common";
+import { kLogoDark, kApiService } from "../common";
 import Navbar from "../components/Navbar";
 
 export default {
   name: "Home",
   data() {
     return {
-      logoImg: common.kLogoDark,
+      count: 0,
+      logoImg: kLogoDark,
     };
   },
   components: {
     Navbar,
   },
-  // 异步请求示例代码
-  // mounted() {
-  //   this.axios.post(common.apiBase + common.apiService.login, {
-  //     'token': 'login',
-  //     'data': {
-  //       'phone': this.form.phone,
-  //       'password': this.form.password,
-  //     }
-  //   }).then((res) => {
-  //     localStorage.setItem('loginToken', res.data.data.token);
-  //     localStorage.setItem('loginName', res.data.data.name);
-  //     this.$router.push('/personal');
-  //   }).catch((err) => {
-  //     this.fail = true;
-  //     console.log(err);
-  //   });
-  // }
+  methods: {
+    click() {
+      this.axios
+        .post(kApiService.root, {})
+        .then(() => {
+          this.axios
+            .post(kApiService.root, {})
+            .then((res) => {
+              this.count = res.data.count;
+            })
+            .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
+    },
+  },
 };
 </script>
 
@@ -47,5 +64,10 @@ export default {
 #logo {
   margin-top: 2vh;
   max-height: 300px;
+}
+
+#counter {
+  margin-top: 20px;
+  text-align: center;
 }
 </style>
