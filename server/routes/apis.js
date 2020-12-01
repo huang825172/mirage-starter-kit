@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const sequelize = require('../db/db');
+const { addCounter, getCounter } = require('../controllers/counter');
 
-/* GET db auth status. */
+// 参考：https://expressjs.com/zh-cn/guide/routing.html
+
+// 对不同Api请求进行分流
 router
-  .post('/', async function (req, res, next) {
-    try {
-      await sequelize.authenticate();
-      res.send('Connection has been established successfully.');
-    } catch (error) {
-      res.send('Unable to connect to the database:' + error);
-    }
+  .post('/add', async (req, res) => {
+    await addCounter(req, res);
+  })
+  .post('/get', async (req, res) => {
+    await getCounter(req, res);
   });
 
 module.exports = router;

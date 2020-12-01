@@ -38,12 +38,27 @@ export default {
   components: {
     Navbar,
   },
+  // 在页面载入时更新点击次数数据
+  mounted() {
+    this.axios
+      .post(kApiService.getCount, {})
+      .then((res) => {
+        this.count = res.data.count;
+      })
+      .catch((err) => console.log(err));
+  },
   methods: {
+    // 点击时，先报告点击事件，再请求新的点击次数
     click() {
       this.axios
-        .post(kApiService.root, {})
-        .then((res) => {
-          this.count = res.data;
+        .post(kApiService.addCount, {})
+        .then(() => {
+          this.axios
+            .post(kApiService.getCount, {})
+            .then((res) => {
+              this.count = res.data.count;
+            })
+            .catch((err) => console.log(err));
         })
         .catch((err) => console.log(err));
     },

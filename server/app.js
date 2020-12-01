@@ -3,9 +3,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+// 参考：https://expressjs.com/en/starter/hello-world.html
+
+// 引入 Api 路由和 History 模式支持路由
 const apiRouter = require('./routes/apis');
 const historyRouter = require('./routes/history');
 
+// 引入并初始化数据库
 const sequelize = require('./db/db')
 require('./db/model');
 sequelize.sync({ force: true });
