@@ -2,6 +2,7 @@
   <div>
     <b-navbar type="light" variant="light" id="nav">
       <b-navbar-nav class="ml-auto">
+        <b-nav-item href="https://github.com/huang825172/mirage-starter-kit">Github 仓库</b-nav-item>
         <b-nav-item href="/">首页</b-nav-item>
         <b-nav-item href="/NoPage">404</b-nav-item>
         <b-nav-item href="/about">关于</b-nav-item>

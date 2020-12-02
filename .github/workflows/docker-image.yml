@@ -13,14 +13,20 @@ jobs:
           npm install
           npm run build
           mv dist/* ../server/public
-      - uses: "finnp/create-file-action@master"
+      - name: Copy database information
+        uses: "finnp/create-file-action@master"
         env:
           FILE_NAME: "./server/db_url"
           FILE_DATA: ${{ secrets.DB_URL }}
-      - uses: docker/build-push-action@v1
+      - name: Build and push to DockerHub
+        uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: huang825172/mirage-test
           dockerfile: build/Dockerfile
           tags: latest
+      - name: Trigger watchtower deploy
+        uses: wei/curl@master
+        with:
+          args: ${{ secrets.WATCHTOWER_UPDATE_CURL }}
