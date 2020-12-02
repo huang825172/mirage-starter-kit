@@ -13,11 +13,6 @@ jobs:
           npm install
           npm run build
           mv dist/* ../server/public
-      - name: Copy database information
-        uses: "finnp/create-file-action@master"
-        env:
-          FILE_NAME: "./server/db_url"
-          FILE_DATA: ${{ secrets.DB_URL }}
       - name: Build and push to DockerHub
         uses: docker/build-push-action@v1
         with:
