@@ -12,6 +12,8 @@
 
 [创建一个页面](tutorial/创建一个页面.md)
 
+[Git 入门指南](tutorial/Git入门指南.md)
+
 ## 运行
 
 ### 后端
