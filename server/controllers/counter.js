@@ -7,15 +7,15 @@ async function addCounter(req, res) {
     try {
         await sequelize.authenticate();
         await sequelize.models.Click.create();
-        res.send(JSON.stringify({
+        res.json({
             status: 'OK'
-        }));
+        });
     } catch (err) {
         console.log(err);
-        res.send(JSON.stringify({
+        res.json({
             status: 'FAIL',
             err: err
-        }));
+        });
     }
 }
 
@@ -24,16 +24,16 @@ async function getCounter(req, res) {
     try {
         await sequelize.authenticate();
         const count = (await sequelize.models.Click.findAll()).length;
-        res.send(JSON.stringify({
+        res.json({
             status: "OK",
             count: count
-        }));
+        });
     } catch (err) {
         console.log(err);
-        res.send(JSON.stringify({
+        res.json({
             status: 'FAIL',
             err: err
-        }));
+        });
     }
 }
 
